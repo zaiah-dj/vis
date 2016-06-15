@@ -1,0 +1,62 @@
+x Loop (songs)
+
+	Package an audio file in the thing
+
+	Dump a waveform
+
+	Read this same waveform	
+
+	Save video...
+
+	Faster...
+
+x	More visuals...
+		there are at least three, they are ugly
+		sort by possible epileptic seizure stuff
+		name and add metadata
+		convert to Lua (or some other scripting language, to make it easy to pop files in)
+
+
+	General
+		add sample rate to Av
+		there are a couple of other globals that should be added (b/c they're calculated...)
+		ptr + 100 seems to be the start of audio, so looping is working for a particular tempo
+		
+
+	Input...
+
+	- libtheora / libvorbisfile (packaged with app)
+	- sqlite3 (select tracks and keep playlists and choose videos or code for animations (could be lua if you wanted))
+	- embed wav files for tests (make em small with glib)
+
+	===========
+
+	Creatively chop this up....
+
+	20.5 kHz (really 16kHz) represents the theoretical limit of human hearing...
+
+	20 - 60 fps (60 is the browser's limit, 100 might be doable on a phone and on a desktop app if you really want it...)
+
+	every nth sample can be fed to something 
+
+
+	get pretty crazy with pipes (haxe, js, coffeescript, as3, etc.)
+
+
+	milliseconds pause with SDL_Delay
+	(can you read information from the userdata?)
+	(at the loops's fastest diff is called 1,000,000 times a second)
+	(1000 ms = 1 s)
+	(1000/
+
+
+	buffer is 4096 (so 40960)
+
+
+	SHIT TO KNOW
+	How many times is audio_callback called in a second?
+	- Is it 44100 times?
+	- Find out by putting some magic within the audio_callback function...
+
+	So what if you just drew the first 20.5k values?
+	- That SHOULD give you a waveform... or at least some kind of visualization of those human perceptible sounds

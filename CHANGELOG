@@ -1,0 +1,13 @@
+*Sun Jun 12 06:30:52 EDT 2016
+	- Added four more visualizations over the past couple of days.
+	- Issues with malloc() are troublesome to find and track down, but it's impossible to maintain state without some kind of heap in place.
+
+
+*Fri Jun 10 07:57:18 EDT 2016
+	- Added three visualizations so far, will be adding more today.
+	- Rearranging application to use no globals.
+
+
+*Wed May 25 21:13:01 EDT 2016
+	- Started this project.  Moved over stuff from 'hear' binary to this.   Works with OSS (and probably with ALSA too).
+

@@ -1,0 +1,31 @@
+Creatively chop this up....
+
+44100 samples / second (how do I find the most significant bits?)
+
+20.5 kHz (really 16kHz) represents the theoretical limit of human hearing...
+
+20 - 60 fps (60 is the browser's limit, 100 might be doable on a phone and on a desktop app if you really want it...)
+
+every nth sample can be fed to something 
+
+
+get pretty crazy with pipes (haxe, js, coffeescript, as3, etc.)
+
+
+milliseconds pause with SDL_Delay
+(can you read information from the userdata?)
+(at the loops's fastest diff is called 1,000,000 times a second)
+(1000 ms = 1 s)
+(1000/
+
+
+buffer is 4096 (so 40960)
+
+
+SHIT TO KNOW
+How many times is audio_callback called in a second?
+- Is it 44100 times?
+- Find out by putting some magic within the audio_callback function...
+
+So what if you just drew the first 20.5k values?
+- That SHOULD give you a waveform... or at least some kind of visualization of those human perceptible sounds
