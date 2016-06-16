@@ -11,14 +11,17 @@ Vis is an audio visualizer.   It's primary use is to analyze wav files and make 
 <p>
 Here is the complete list of options thus far:
 <pre>
--l, --loop <arg>         Loop over audio.
+<code>
+    --log (arg)          Log files somewhere.
+-l, --loop (arg)         Log files somewhere.
     --describe           Describe an audio stream.
--d, --dir <arg>          Save video files to <dir>.
--p, --play <arg>         Choose a file to play.
--r, --render <arg>       Render a session to file.
--s, --switch <arg>       Switch animations every <arg> seconds.
--f, --framerate <arg>    Use <arg> fps when rendering.
--n, --resolution <arg>   Use <arg> resolution.
+-d, --dir (arg)          Save video files to $dir.
+-p, --play (arg)         Choose a file to play.
+-r, --render (arg)       Render a session to file.
+-s, --switch (arg)       Switch animations every $arg seconds.
+-f, --framerate (arg)    Use $arg fps when rendering.
+-n, --resolution (arg)   Use $arg resolution.
+</code>
 </pre>
 </p>
 
