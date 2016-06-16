@@ -12,7 +12,6 @@ Vis is an audio visualizer.   It's primary use is to analyze wav files and make 
 Here is the complete list of options thus far:
 <pre>
 <code>
-    --log (arg)          Log files somewhere.
 -l, --loop (arg)         Log files somewhere.
     --describe           Describe an audio stream.
 -d, --dir (arg)          Save video files to $dir.

@@ -64,6 +64,7 @@ archive: ARCHIVEDIR = archive
 archive: backup
 
 doc:
+	git checkout gh-pages
 	git show `git show-ref master --heads --hash`:README.md > index.html
 	git add index.*
 	git commit -m "Updated documentation"
