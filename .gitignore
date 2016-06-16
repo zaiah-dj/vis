@@ -2,3 +2,6 @@ archive
 src.vim
 NOTES
 *.o
+*.mp3
+*.ogg
+*.wav

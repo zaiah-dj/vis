@@ -22,9 +22,6 @@ $(NAME): ${OBJ}
 	@echo CC -o $@ ${OBJ} ${CFLAGS}
 	@${CC} -o $@ ${OBJ} ${CFLAGS}
 
-embed: DFLAGS = -DENABLE_VERSION_BANNER -DVERSION="$(VERSION)" -DPLAY_EMBEDDED
-embed: $(NAME)
-
 debug:
 	$(DBGCHK) $(DBGFLAGS) ./$(NAME) $(FLAGS)
 
@@ -37,7 +34,7 @@ leak:
 
 clean:
 	@echo Cleaning
-	@rm -f *.o *.so *.dll
+	@rm -f $(NAME) *.o *.so *.dll
 
 veryclean:
 	@echo Cleaning up version control files...

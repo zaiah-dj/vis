@@ -89,7 +89,7 @@ struct Av {
 /*Data structure to hold visual montage info*/
 typedef struct Vv Vv;
 struct Vv {
-	_Bool       no_epilepsy;
+	_Bool       p_epilepsy;
 	const char *name;
 	char       *author;
 	void      (*fp)(Surface *win, Av *av);
@@ -418,15 +418,24 @@ void mills2 (Surface *win, Av *v) {
 			// you could update only the areas that have changed...
 		}
 		#endif
-		if (i==9) fprintf(stderr, "\n");
 	}
 }
+
+
+void rain (Surface *win, Av *v) {
+
+}
+
 
 void mills (Surface *win, Av *v) {
 	/*Draw bunches of lines*/
 	int x=urwr(0,win->w);
-	int c=urwr(0x333333, 0xdddddd);
-	line(win, x, *v->ap, x, *(v->ap + 1) << 2, c, 0xff);
+	//int c=urwr(0x333333, 0xdddddd);
+	int c=0xffffff;
+	for (int n=0;n<100;n++) {
+		int x=urwr(0, win->w);
+		line(win, x, cp(n), x, cp(n+2) << 2, urwr(0x111111, 0xffffff), 0xff);
+	}
 }
 
 
@@ -502,14 +511,14 @@ Vv fp[] = {
 #ifdef PLAY_AUDIO_ONLY
 	{ 0, "dummy",   AUTHOR, none       },
 #else
-	{ 1, "lines",   AUTHOR, drawLines  },
+	{ 1, "ColorBath",   AUTHOR, drawLines  },
 	{ 1, "rects",   AUTHOR, drawRects  },
 	{ 1, "bars",    AUTHOR, bars       },
 	{ 0, "points",  AUTHOR, drawPoints },
-	{ 0, "radial",  AUTHOR, radial     },
+	{ 1, "radial",  AUTHOR, radial     },
 	{ 0, "circles", AUTHOR, drawCircs  },
 	{ 0, "Mills",   AUTHOR, mills      },
-	{ 0, "Mills 2", AUTHOR, mills2     },
+	{ 1, "Neon WaveForm", AUTHOR, mills2     },
 	{ 0, "WavForm", AUTHOR, drawWavform},
 #endif
 };
@@ -529,7 +538,7 @@ struct Settings {
 	.fps        = 0,
 	.change = 5,
 	.loop       = 0,
-	.no_epilepsy = 0,
+	.no_epilepsy = 1,
 	.res = 1,
 };
 
@@ -569,16 +578,17 @@ void opt_set_resolution (char **av, Value *v) {
 Opt opts[] = {
 	#if 0 /*Consider leaving these in a config.h.*/
 	{ 0, "-b", "--buffer-size",  "Set an alternate buffer size."             },
-	#endif
-	{ 0,NULL, "--log",      "Log files somewhere.", 1, .callback=opt_set_filename },
-	{ 0,"-l", "--loop",      "Log files somewhere.", 1, .callback=opt_set_filename },
-	{ 0,NULL, "--describe", "Describe an audio stream."                 },
-	{ 0,"-d", "--dir",      "Save video files to <dir>.", 1, .callback=opt_set_dir  },
-	{ 0,"-p", "--play",     "Choose a file to play.", 1, .callback=opt_set_filename },
 	{ 0,"-r", "--render",   "Render a session to file.", 1, .callback=opt_set_filename },
+	{ 0,"-d", "--dir",      "Save video files to <dir>.", 1, .callback=opt_set_dir  },
+	{ 0,NULL, "--log",      "Log files somewhere.", 1, .callback=opt_set_filename },
+	#endif
+	{ 0,"-l", "--loop",     "Enable looping.", },
+	{ 0,NULL, "--describe", "Describe an audio stream."                 },
+	{ 0,"-p", "--play",     "Choose a file to play.", 1, .callback=opt_set_filename },
 	{ 0,"-s", "--switch",   "Switch animations every <arg> seconds.", 1, .callback=opt_set_switch   },
 	{ 0,"-f", "--framerate","Use <arg> fps when rendering.", 1, .callback=opt_set_fps },
 	{ 0,"-n", "--resolution","Use <arg> resolution.", 1, .callback=opt_set_resolution },
+	{ 0,"-e", "--enable-flashes","Use <arg> resolution." },
 	{ .sentinel=1 }
 };
 
@@ -608,6 +618,8 @@ int main (int argc, char *argv[])
 			settings.change = eval->v.n;
 		else if (optset("--resolution"))
 			settings.res = eval->v.n;
+		else if (optset("--enable-flashes"))
+			settings.no_epilepsy = 0;
 		else if (optset("--log")) {
 			fprintf(stderr, "Logging output to file: %s\n", eval->v.s);
 			wo=fopen(eval->v.s, "w+");
@@ -708,14 +720,25 @@ int main (int argc, char *argv[])
 			if (!settings.no_epilepsy)
 				m += (m == ((sizeof(fp)/sizeof(Vv)) - 1) ? -m : 1);
 			else {
-				while (fp[m].no_epilepsy)
+				do {
 					m += (m == ((sizeof(fp)/sizeof(Vv)) - 1) ? -m : 1);
+				#ifdef PRINT_ANIMATION_INFO	
+					/*Print animation info to the console.*/
+					if (fp[m].p_epilepsy)
+						fprintf(stdout, "Skipping animation: %s by %s\n.", fp[m].name, fp[m].author);
+				#endif
+				} while (fp[m].p_epilepsy);
 			}
 
 			/*Call transition*/
 			SDL_Rect r={0,0,Win.w,Win.h};
 			SDL_FillRect(Win.win, &r, 0x000000);
 			SDL_UpdateRect(Win.win, 0, 0, 0, 0);
+		
+		#ifdef PRINT_ANIMATION_INFO	
+			/*Print animation info to the console.*/
+			fprintf(stdout, "Loaded animation: %s by %s\n.", fp[m].name, fp[m].author);
+		#endif
 
 			/*Free any data that was there previously*/	
 			if (mv.opqset) {

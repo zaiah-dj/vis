@@ -308,7 +308,7 @@ line (Surface *win, int32_t x0, int32_t y0, int32_t x1, int32_t y1, uint32_t clr
 	uint32_t H = win->h - 1; 
 	uint32_t W = win->w - 1;
 	if ((x0<0 && x1<0)||(y0<0 && y1<0)||(x0>W && x1>W)||(y0>H && y1>H)) {
-		fprintf(stderr, "Points outside of drawable range.\n");
+		//fprintf(stderr, "Points outside of drawable range.\n");
 		return;
 	}
 
@@ -458,7 +458,7 @@ void sline (Surface *win,
 	uint32_t H = win->h - 1; 
 	uint32_t W = win->w - 1;
 	if ((x0<0 && x1<0)||(y0<0 && y1<0)||(x0>W && x1>W)||(y0>H && y1>H)) {
-		fprintf(stderr, "Points outside of drawable range.\n");
+		//fprintf(stderr, "Points outside of drawable range.\n");
 		return;
 	}
 
