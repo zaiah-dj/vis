@@ -1,9 +1,17 @@
-<h2>vis</h2>
-Vis is an audio visualizer.   It's primary use is to analyze wav files and make something out of them.  However, it's designed to be able to handle a variety of tasks and be extensible.
+<html>
+<head>
+<style type=text/css>
+h1 {  font-size: 3em; }
+h2 {  font-size: 1.5em; }
+html { width: 50%; left: 25%; position: relative; }
+</style>
+<link rel="stylesheet" type=text/css href="https://fonts.googleapis.com/css?family=Righteous">
+</head>
+<h1>vis</h1>
+Vis is an audio visualizer.   It's primary use is to analyze wav files and make something out of them.  However, it's designed to be able to handle a variety of tasks and be extensible.  Enjoy!
 
 
-Usage
------
+<h2>Usage</h2>
 <p>
 Here is the complete list of options thus far:
 <pre>
@@ -25,8 +33,7 @@ The most important options are -p, -l and -f.  -p expects the name of a WAV file
 
 
 
-Extension
----------
+<h2>Extension</h2>
 <p>
 Right now, vis can be very easily extended by modifying main.c.   The prototype of an animation function is as follows:
 <pre>
@@ -37,15 +44,8 @@ void my_new_animation (Surface *w, Av *v) {
 </p>
 
 
-Caveats
--------
+<h2>Caveats</h2>
 <p>
 As mentioned in the 'Usage' section, people at risk for epileptic seizures should not crank this program to a high framerate.  Many of the effects used here are crude, ugly, and highly saturated with color (like anything from <a href="/">Paper Rad</a>).  To prevent any possible health issues, the Av struct contains a field titled 'no_epilepsy'.  If an animation has this field set, 'vis' will skip it.  It is a compile-time option and can be turned off with '-D=NO_EPILEPSY'.
 </p>
-
-
-Bugs
-----
-<p>
-'vis' heavily utilizes a library I've written titled 'canvas'.  It is currently in beta and under constant development. 
-</p>
+</html>
