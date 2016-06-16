@@ -1,10 +1,6 @@
 <html>
 <head>
-<style type=text/css>
-h1 {  font-size: 3em; }
-h2 {  font-size: 1.5em; }
-html { width: 50%; left: 25%; position: relative; }
-</style>
+<link rel="stylesheet" type=text/css href="index.css">
 <link rel="stylesheet" type=text/css href="https://fonts.googleapis.com/css?family=Righteous">
 </head>
 <h1>vis</h1>
