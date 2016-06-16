@@ -63,11 +63,16 @@ backup:
 archive: ARCHIVEDIR = archive
 archive: backup
 
+commit:
+	git add .
+	git commit -m "Changes made."
+#	git push 
+
 doc:
 	git checkout gh-pages
 	git show `git show-ref master --heads --hash`:README.md > index.html
 	git add index.*
-	git commit -m "Updated documentation"
+	git commit -m "Updated documentation `date +%F`"
 	git push
 	git checkout master	
 

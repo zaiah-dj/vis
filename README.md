@@ -30,7 +30,7 @@ The most important options are -p, -l and -f.  -p expects the name of a WAV file
 
 
 
-<h2>Extension</h2>
+<h2>Extension and Hacking</h2>
 <p>
 Right now, vis can be very easily extended by modifying main.c.   The prototype of an animation function is as follows:
 <pre>
@@ -40,9 +40,23 @@ void my_new_animation (Surface *w, Av *v) {
 </pre>
 </p>
 
+<p>
+Flags that are supported:
+<pre>
+<code>
+-DENABLE_VERSION_BANNER - Turns version announcement on or off.
+-DPLAY_EMBEDDED         - Use embedded audio instead of an external audio file.
+-DPLAY_AUDIO_ONLY       - Play no animations, just play the audio.
+</code>
+</pre>
+</p>
+
 
 <h2>Caveats</h2>
 <p>
 As mentioned in the 'Usage' section, people at risk for epileptic seizures should not crank this program to a high framerate.  Many of the effects used here are crude, ugly, and highly saturated with color (like anything from <a href="/">Paper Rad</a>).  To prevent any possible health issues, the Av struct contains a field titled 'no_epilepsy'.  If an animation has this field set, 'vis' will skip it.  It is a compile-time option and can be turned off with '-D=NO_EPILEPSY'.
 </p>
+
+
+
 </html>
