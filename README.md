@@ -1,5 +1,4 @@
-vis
----
+<h2>vis</h2>
 Vis is an audio visualizer.   It's primary use is to analyze wav files and make something out of them.  However, it's designed to be able to handle a variety of tasks and be extensible.
 
 
