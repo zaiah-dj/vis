@@ -63,4 +63,11 @@ backup:
 archive: ARCHIVEDIR = archive
 archive: backup
 
+doc:
+	git show `git show-ref master --heads --hash`:README.md > index.html
+	git add index.*
+	git commit -m "Updated documentation"
+	git push
+	git checkout master	
+
 .PHONY: all options clean dist install uninstall permissions archive
