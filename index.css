@@ -1,3 +1,4 @@
 h1 {  font-size: 3em; }
 h2 {  font-size: 1.5em; }
 html { width: 50%; left: 25%; position: relative; }
+pre { background-color: #dddddd; }
