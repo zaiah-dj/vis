@@ -1,4 +1,5 @@
-h1 {  font-size: 3em; }
-h2 {  font-size: 1.5em; }
 html { width: 50%; left: 25%; position: relative; }
+h1,h2 { font-family: "Righteous"; }
+h1 {  font-size: 3em; font-family: "Righteous"; }
+h2 {  font-size: 1.5em; }
 pre { background-color: #dddddd; }
