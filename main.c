@@ -630,9 +630,6 @@ int main (int argc, char *argv[])
 	}
 
 
-	/*I better dump other stuff*/
-	//fprintf(stderr, "%d , %d\n", resolutions[settings.res].w, resolutions[settings.res].h);
-
 #if 0
 	/*Please make Engine datatype*/
 #else
