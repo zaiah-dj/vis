@@ -1,5 +1,6 @@
-html { width: 50%; left: 25%; position: relative; }
+html { width: 50%; left: 25%; position: relative; font-family: "Georgia"; font-size: 1.1em; }
 h1,h2 { font-family: "Righteous"; }
 h1 {  font-size: 3em; font-family: "Righteous"; }
 h2 {  font-size: 1.5em; }
-pre { background-color: #dddddd; }
+pre { background-color: #dddddd; padding: 5px; }
+
