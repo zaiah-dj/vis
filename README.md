@@ -30,6 +30,11 @@ The most important options are -p, -l and -f.  -p expects the name of a WAV file
 </p>
 
 
+<h2>Screenshots</h2>
+<img src=shots/radials.png>
+<img src=shots/mills.png>
+<img src=shots/bars.png>
+
 
 <h2>Extension and Hacking</h2>
 <p>
