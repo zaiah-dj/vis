@@ -3,4 +3,4 @@ h1,h2 { font-family: "Righteous"; }
 h1 {  font-size: 3em; font-family: "Righteous"; }
 h2 {  font-size: 1.5em; }
 pre { background-color: #dddddd; padding: 5px; }
-
+img { width 98%; border: 1% solid black; } 
