@@ -1,9 +1,12 @@
+#ifndef _WIN32
+ #define _POSIX_C_SOURCE 200809L
+#endif 
 #include <signal.h>
 #include <errno.h>
 #include <stdlib.h>
 #include <SDL/SDL.h>
-#include <sys/time.h>
 #include <time.h>
+#include <sys/time.h>
 
 #ifndef CANVAS_H
 #define CANVAS_H
@@ -167,6 +170,7 @@ struct Poly {
 	Pt *points;
 };
 
+#if 0
 typedef struct Timer Timer;
 struct Timer {
 	timer_t *timer;
@@ -179,6 +183,7 @@ struct Timer {
 void __timer_start (Timer *t, const char *file, int line);
 void __timer_end (Timer *t, const char *file, int line);
 void __timer_elap (const char *file, int line);
+#endif
 
 /*This is an idea....but eschew it for now*/
 typedef struct PtFmt PtFmt;

@@ -1,5 +1,4 @@
 /*main.c*/
-#define _POSIX_C_SOURCE 2
 #include <stdio.h>
 #include <math.h>
 #include <SDL/SDL.h>
@@ -651,7 +650,7 @@ int main (int argc, char *argv[])
 	Surface Win = { .h = resolutions[settings.res].h, .w = resolutions[settings.res].w, .bpp = BPP}; 
 	Win.win = SDL_SetVideoMode(Win.w, Win.h, Win.bpp, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	signal(SIGINT, SIG_DFL);
-	SDL_Event event;
+	SDL_Event event = {0};
 #endif
 
 	/*Set defaults and others.*/

@@ -683,6 +683,7 @@ void set_all_keys (KeySet *keys) {
 }
 
 
+#if 0
 /* ---------------- TIMER ----------------------- */
 void __timer_start (Timer *t, const char *file, int line) {
 	t->file = file;
@@ -696,4 +697,4 @@ void __timer_end (Timer *t, const char *file, int line) {
 
 void __timer_elap (const char *file, int line) {
 }
-
+#endif
